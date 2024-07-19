@@ -29,7 +29,7 @@ def get_extensions():
         define_macros += [("WITH_CUDA", None)]
         nvcc_flags = os.getenv("NVCC_FLAGS", "")
         if nvcc_flags == "":
-            nvcc_flags = ["-O3"]
+            nvcc_flags = ["-O3", "-arch=compute_80", "-code=sm_80"]
         else:
             nvcc_flags = nvcc_flags.split(" ")
         extra_compile_args = {
